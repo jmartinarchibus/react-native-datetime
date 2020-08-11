@@ -1,17 +1,21 @@
 import * as React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import Datetime from 'react-native-datetime';
+import { utcToLocalDate } from 'react-native-datetime';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  const [utcResult, setUtcResult] = React.useState<Date | undefined>();
 
   React.useEffect(() => {
-    Datetime.multiply(3, 7).then(setResult);
+    const date = new Date().toISOString();
+    console.log(date);
+    // Datetime.utcToLocal(date, 'Australia/Melbourne').then(setUtcResult);
+
+    utcToLocalDate(date, 'Australia/Melbourne').then(setUtcResult);
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Date: {utcResult?.toString()}</Text>
     </View>
   );
 }
