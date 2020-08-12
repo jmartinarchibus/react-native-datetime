@@ -11,4 +11,8 @@ RCT_EXTERN_METHOD(utcToLocal:(NSString)utcString
                   withResolver:(RCTPromiseResolveBlock)resolve
                   withRejecter:(RCTPromiseRejectBlock)reject )
 
+RCT_EXTERN_METHOD(localOffset:(NSString)timeZoneName
+                  withResolver:(RCTPromiseResolveBlock)resolve
+                  withRejecter:(RCTPromiseRejectBlock)reject )
+
 @end

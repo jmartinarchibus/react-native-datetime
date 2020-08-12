@@ -31,4 +31,15 @@ class Datetime: NSObject {
         
         
     }
+    
+    @objc(localOffset:withResolver:withRejecter:)
+    func localOffset(timeZoneName: String, resolve:RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
+        
+        let timeZone = NSTimeZone(name: timeZoneName)
+        
+        resolve(timeZone?.secondsFromGMT)
+        
+    }
+    
+    
 }

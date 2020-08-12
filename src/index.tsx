@@ -3,6 +3,7 @@ import { NativeModules } from 'react-native';
 type DatetimeType = {
   multiply(a: number, b: number): Promise<number>;
   utcToLocal(utcString: string, timeZoneName: string): Promise<string>;
+  localOffset(timeZoneName: string): Promise<string>;
 };
 
 const { Datetime } = NativeModules;

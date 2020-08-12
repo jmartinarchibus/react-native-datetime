@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { utcToLocalDate } from 'react-native-datetime';
+import Datetime, { utcToLocalDate } from 'react-native-datetime';
 
 export default function App() {
   const [utcResult, setUtcResult] = React.useState<Date | undefined>();
@@ -11,6 +11,10 @@ export default function App() {
     // Datetime.utcToLocal(date, 'Australia/Melbourne').then(setUtcResult);
 
     utcToLocalDate(date, 'Australia/Melbourne').then(setUtcResult);
+
+    Datetime.localOffset('America/New_York').then((result: string) => {
+      console.log(result);
+    });
   }, []);
 
   return (
